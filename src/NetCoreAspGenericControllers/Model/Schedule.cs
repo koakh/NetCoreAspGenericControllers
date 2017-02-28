@@ -1,0 +1,30 @@
+﻿using NetCoreAspGenericControllers.Abstract;
+using NetCoreAspGenericControllers.Model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NetCoreAspGenericControllers.Model
+{
+    public class Schedule : EntityBase
+    {
+        public Schedule()
+        {
+            Attendees = new List<Attendee>();
+        }
+
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime TimeStart { get; set; }
+        public DateTime TimeEnd { get; set; }
+        public string Location { get; set; }
+        public ScheduleType Type { get; set; }
+
+        public ScheduleStatus Status { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
+        public User Creator { get; set; }
+        public int CreatorId { get; set; }
+        public ICollection<Attendee> Attendees { get; set; }
+    }
+}
